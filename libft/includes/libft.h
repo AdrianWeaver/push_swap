@@ -6,7 +6,7 @@
 /*   By: aweaver <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 11:10:46 by aweaver           #+#    #+#             */
-/*   Updated: 2021/12/02 13:21:20 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/03/10 12:10:12 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,27 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
+# endif
+
+# ifndef FT_COLOURS
+#  define FT_COLOURS
+#  define BLACK "\33[0;30m"
+#  define RED "\33[0;31m"
+#  define GREEN "\33[0;32m"
+#  define YELLOW "\33[0;33m"
+#  define BLUE "\33[0;34m"
+#  define PINK "\33[0;35m"
+#  define TEAL "\33[0;36m"
+#  define GREY "\33[0;90m"
+#  define WHITE "\33[0;37m"
+#  define BRED "\33[1;31m"
+#  define BGREEN "\33[1;32m"
+#  define BYELLOW "\33[1;33m"
+#  define BBLUE "\33[1;34m"
+#  define BPINK "\33[1;35m"
+#  define BTEAL "\33[1;36m"
+#  define BWHITE "\33[1;97m"
+#  define NOCOLOUR "\33[0m"
 # endif
 
 # ifndef FT_ISALPHA_H
@@ -62,10 +83,38 @@ int		ft_isprint(int c);
 
 # endif
 
+# ifndef FT_IS_BASE_OK
+#  define FT_IS_BASE_OK
+
+int		ft_is_base_ok(int base_len, char *base_format);
+
+# endif
+
+# ifndef FT_ARRAY_SIZE
+#  define FT_ARRAY_SIZE
+
+int		ft_array_size(char **str);
+
+# endif
+
 # ifndef FT_STRLEN_H
 #  define FT_STRLEN_H
 
 size_t	ft_strlen(const char *s);
+
+# endif
+
+# ifndef FT_STRLEN_INT
+#  define FT_STRLEN_INT
+
+int		ft_strlen_int(char *s);
+
+# endif
+
+# ifndef FT_STRLEN_NL
+#  define FT_STRLEN_NL
+
+int		ft_strlen_nl(char *str);
 
 # endif
 
@@ -97,10 +146,24 @@ void	*ft_memmove(void *dest, const void *src, size_t n);
 
 # endif
 
+# ifndef FT_STRCPY
+#  define FT_STRCPY
+
+char	*ft_strcpy(char *dest, const char *str);
+
+# endif
+
 # ifndef FT_STRLCPY_H
 #  define FT_STRLCPY_H
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
+
+# endif
+
+# ifndef FT_STRCAT
+#  define FT_STRCAT
+
+char	*ft_strcat(char *dest, char *src);
 
 # endif
 
@@ -146,6 +209,13 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
 
 # endif
 
+# ifndef FT_STRCMP
+#  define FT_STRCMP
+
+int		ft_strcmp(const char *s1, const char *s2);
+
+# endif
+
 # ifndef FT_MEMCHR_H
 #  define FT_MEMCHR_H
 
@@ -174,6 +244,13 @@ int		ft_atoi(const char *nptr);
 
 # endif
 
+# ifndef FT_REALLOC
+#  define FT_REALLOC
+
+void	*ft_realloc(void *ptr, size_t old_size, size_t size);
+
+# endif
+
 # ifndef FT_CALLOC_H
 #  define FT_CALLOC_H
 
@@ -198,7 +275,14 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 # ifndef FT_STRJOIN_H
 #  define FT_STRJOIN_H
 
-char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strjoin(char *s1, char *s2);
+
+# endif
+
+# ifndef FT_STRJOIN_FREE
+#  define FT_STRJOIN_FREE
+
+char	*ft_strjoin_free(char *s1, char *s2);
 
 # endif
 
@@ -223,6 +307,42 @@ char	*ft_itoa(int n);
 
 # endif
 
+# ifndef FT_UTOA
+#  define FT_UTOA
+
+char	*ft_utoa(unsigned int n);
+
+# endif
+
+# ifndef FT_ULTOA
+#  define FT_ULTOA
+
+char	*ft_ultoa(size_t n);
+
+# endif
+
+# ifndef FT_ITOA_BASE
+#  define FT_ITOA_BASE
+
+char	*ft_itoa_base(int n, int base_len, char *base_format);
+
+# endif
+
+# ifndef FT_UTOA_BASE
+#  define FT_UTOA_BASE
+
+char	*ft_utoa_base(unsigned int n, unsigned int base_len,
+			char *base_format);
+
+# endif
+
+# ifndef FT_ULTOA_BASE
+#  define FT_ULTOA_BASE
+
+char	*ft_ultoa_base(size_t n, size_t base_len, char *base_format);
+
+# endif
+
 # ifndef FT_STRMAPI_H
 #  define FT_STRMAPI_H
 
@@ -234,6 +354,46 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 #  define FT_STRITERI_H
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
+
+# endif
+
+# ifndef FT_PUTNBR
+#  define FT_PUTNBR
+
+int		ft_putnbr(int n);
+
+# endif
+# ifndef FT_PUTENDL
+#  define FT_PUTENDL
+
+int		ft_putendl(char *s);
+
+# endif
+# ifndef FT_PUTSTR
+#  define FT_PUTSTR
+
+int		ft_putstr(char *s);
+
+# endif
+
+# ifndef FT_PUTSTR_COLOUR
+#  define FT_PUTSTR_COLOUR
+
+int		ft_putstr_colour(char *s, char *colour);
+
+# endif
+
+# ifndef FT_PUTCHAR
+#  define FT_PUTCHAR
+
+int		ft_putchar(char c);
+
+# endif
+
+# ifndef FT_PUTCHAR_COLOUR
+#  define FT_PUTCHAR_COLOUR
+
+int		ft_putchar_colour(char c, char *colour);
 
 # endif
 
@@ -327,4 +487,11 @@ void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 # endif
+
+# ifndef FT_COUNT_DIGITS
+#  define FT_COUNT_DIGITS
+
+int		ft_count_digits(long int nb);
+# endif
+
 #endif

@@ -4,5 +4,6 @@ test*
 *.swo
 main*
 *.o
+*.d
 a.out
 libft.so
