@@ -1,93 +1,68 @@
-NAME			=	push_swap
+NAME					=	push_swap
 
-LIBFT			=	$(addprefix $(LIBFT_PATH), libft.a)
+#############################################################################
+#																			#
+#									COMPILER								#
+#																			#
+#############################################################################
 
-SCRS_PATH		=	./utils/
+CC		=		gcc
+CFLAGS	=		-MMD -Wall -Wextra -Werror -g3
+INC		=		-I ./includes/\
+				-I $(LIBFT_INC)
 
-SRCS			=	$(addprefix $(SRCS_PATH), push_swap)
 
-LIBFT_PATH		=	./libft/
+#############################################################################
+#																			#
+#									FILES									#
+#																			#
+#############################################################################
 
-LIBFT_SRCS		=	$(addprefix $(LIBFT_PATH),				\
-					ft_isalpha.c							\
-					ft_isdigit.c							\
-					ft_isalnum.c							\
-					ft_isascii.c							\
-					ft_isprint.c							\
-					ft_strlen.c								\
-					ft_memset.c								\
-					ft_bzero.c								\
-					ft_memcpy.c								\
-					ft_memmove.c							\
-					ft_strlcpy.c							\
-					ft_strlcat.c							\
-					ft_toupper.c							\
-					ft_tolower.c							\
-					ft_strchr.c								\
-					ft_strrchr.c							\
-					ft_strncmp.c							\
-					ft_memchr.c								\
-					ft_memcmp.c								\
-					ft_strnstr.c							\
-					ft_atoi.c								\
-					ft_calloc.c								\
-					ft_strdup.c								\
-					ft_substr.c								\
-					ft_strjoin.c							\
-					ft_strtrim.c							\
-					ft_split.c								\
-					ft_itoa.c								\
-					ft_strmapi.c							\
-					ft_striteri.c							\
-					ft_putchar_fd.c							\
-					ft_putstr_fd.c							\
-					ft_putendl_fd.c							\
-					ft_putnbr_fd.c							\
-					ft_lstnew.c								\
-					ft_lstadd_front.c						\
-					ft_lstsize.c							\
-					ft_lstlast.c							\
-					ft_lstadd_back.c						\
-					ft_lstdelone.c							\
-					ft_lstclear.c							\
-					ft_lstiter.c							\
-					ft_lstmap.c)
+SRCS	=	main.c
+OBJS	=	$(addprefix $(OBJS_PATH), $(SRCS:.c=.o))
+DEPS	=	$(OBJS:.o=.d)
+LIBFT	=	$(addprefix $(LIBFT_PATH), libft.a) 
 
-OBJS			=	$(SRCS:.c=.o)
 
-LIBFT_OBJS		=	$(LIBFT_SRCS:.c=.o)
+#############################################################################
+#																			#
+#									PATHS									#
+#																			#
+#############################################################################
 
-CC				=	gcc
+SRCS_PATH	=	./sources/
+OBJS_PATH	=	./objects/
+LIBFT_PATH	=	./libft/
+LIBFT_INC	=	./libft/includes/
 
-CFLAGS			=	-Wall -Wextra -Werror
+#############################################################################
+#																			#
+#									RULES									#
+#																			#
+#############################################################################
 
-INC				=	./includes
+all:				$(NAME)
 
-DEP				=	$(OBJS:.o=.d)							\
-					$(LIBFT_OBJS:.o=.d)
+$(NAME):			$(OBJS) $(LIBFT)
+					$(CC) $(CFLAGS) $(OBJS) -o $@ $(LIBFT)
 
--include		$(DEP)
+$(OBJS_PATH)%.o:	$(SRCS_PATH)%.c
+					@mkdir -p $(OBJS_PATH)
+					$(CC) $(CFLAGS) -c $< -o $@ $(INC)
 
-all:			$(NAME)
+$(LIBFT):
+					@make -C $(LIBFT_PATH) --no-print-directory
+clean:				
+					@rm -rf $(OBJS_PATH)
+					@echo "Objs cleaned!"
 
-$(NAME):		$(LIBFT) $(OBJS)
-				$(CC) $(CFLAGS) -o $(NAME) $^
+fclean:				clean
+					rm -f $(NAME)
 
-$(LIBFT):		$(LIBFT_OBJS)
-				ar -rcs $(LIBFT) $^
+re:					fclean
+					@make all --no-print-directory
 
-%.o:			%.c
-				$(CC) $(CFLAGS) -c $^ -o $@ -I $(INC)
-				
-clean:
-				rm -f $(OBJS) $(LIBFT_OBJS)
 
-fclean:			clean
-				rm -f $(NAME) $(LIBFT)
-				
-re:				fclean all
-
-test:			re
-				$(CC) main.c $(NAME) -I $(INC) && ./a.out
-
-.PHONY:			all re clean fclean test bonus rebonus
+test:
+-include $(DEPS)
+.PHONY:				all clean fclean re bonus test
