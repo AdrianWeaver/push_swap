@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 13:20:00 by aweaver           #+#    #+#             */
-/*   Updated: 2022/03/18 10:52:25 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/03/18 12:36:29 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,67 +37,47 @@ void	ft_print_pile(t_ps_pile *p_a, t_ps_pile *p_b)
 	}
 }
 
-t_ps_pile	*ft_get_pile(int argc, char **argv)
+void	ft_error(void)
 {
-	t_ps_pile	*start_a;
-	t_ps_pile	*tmp_a;
-	int			i;
-
-	i = 1;
-	start_a = NULL;
-	while (i < argc)
-	{
-		tmp_a = ft_new_pile(ft_atoi(argv[i]));
-		if (start_a == NULL)
-			start_a = tmp_a;
-		else
-			ft_pile_add_back(&start_a, tmp_a);
-		i++;
-	}
-	return (start_a);
-}
-
-void	ft_get_index(t_ps_pile *pile_a, int argc)
-{
-	t_ps_pile	*max;
-	t_ps_pile	*save;
-	int			cmp;
-
-	argc--;
-	save = pile_a;
-	while (argc > 0)
-	{
-		pile_a = save;
-		cmp = INT_MIN;
-		while (pile_a)
-		{
-			if (pile_a->value > cmp && pile_a->index == 0)
-			{
-				cmp = pile_a->value;
-				max = pile_a;
-				pile_a = save;
-			}
-			else
-				pile_a = pile_a->next;
-		}
-		max->index = argc;
-		argc--;
-	}
+	write(2, "Error\n", 6);
+	exit (1);
 }
 
 void	ft_check_args(int argc, char **argv)
 {
+	int	i;
+	int	j;
+
+	i = 1;
 	if (argc < 2 || argv == NULL)
-		exit (0);
+		exit (1);
+	while (i < argc)
+	{
+		j = 1;
+		if (argv[i][0] == '-' || ft_isdigit(argv[i][0]) == 1)
+		{
+			while (argv[i][j])
+			{
+				if (ft_isdigit(argv[i][j]) == 0)
+					ft_error();
+				j++;
+			}
+		}
+		else
+			ft_error();
+		i++;
+	}
 }
 
 int	main(int argc, char **argv)
 {
 	t_ps_pile	*pile_a;
+	t_ps_pile	*pile_b;
 
 	ft_check_args(argc, argv);
+	pile_b = NULL;
 	pile_a = ft_get_pile(argc, argv);
 	ft_get_index(pile_a, argc);
-	ft_print_pile(pile_a, NULL);
+	ft_print_pile(pile_a, pile_b);
 	return (0);
 }
