@@ -20,7 +20,8 @@ INC		=		-I ./libft/includes\
 #############################################################################
 
 SRCS	=	main.c					\
-			ft_lst_functions.c
+			ft_lst_functions.c		\
+			ft_get_functions.c
 OBJS	=	$(addprefix $(OBJS_PATH), $(SRCS:.c=.o))
 DEPS	=	$(OBJS:.o=.d)
 LIBFT	=	$(addprefix $(LIBFT_PATH), libft.a) 
@@ -65,6 +66,8 @@ re:					fclean
 					@make all --no-print-directory
 
 
-test:
+test:				$(NAME)	
+					./push_swap 2 44 66 102 -1 38
+
 -include $(DEPS)
 .PHONY:				all clean fclean re bonus test
