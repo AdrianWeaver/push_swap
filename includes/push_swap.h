@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 13:20:59 by aweaver           #+#    #+#             */
-/*   Updated: 2022/03/18 10:53:06 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/03/18 11:13:10 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ typedef struct s_ps_pile
 t_ps_pile	*ft_last_pile(t_ps_pile *pile);
 t_ps_pile	*ft_new_pile(int value);
 void		ft_pile_add_back(t_ps_pile **start, t_ps_pile *new);
+t_ps_pile	*ft_get_pile(int argc, char **argv);
 void		ft_get_index(t_ps_pile *pile_a, int argc);
 #endif
