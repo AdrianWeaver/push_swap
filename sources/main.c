@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 13:20:00 by aweaver           #+#    #+#             */
-/*   Updated: 2022/03/18 12:36:29 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/03/18 13:38:52 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,19 @@ void	ft_print_pile(t_ps_pile *p_a, t_ps_pile *p_b)
 	ft_printf("PILE A:			PILE B:\n");
 	while (p_a || p_b)
 	{
-		if (p_a == NULL)
+		if (p_a == NULL || p_a->index == 0)
 		{
-			ft_printf("empty			%d:%3d\n", p_b->index, p_b->value);
+			ft_printf("empty			%d:%5d\n", p_b->index, p_b->value);
 			p_b = p_b->next;
 		}
-		else if (p_b == NULL)
+		else if (p_b == NULL || p_b->index == 0)
 		{
-			ft_printf("%d:%3d			empty\n", p_a->index, p_a->value);
+			ft_printf("%d:%5d			empty\n", p_a->index, p_a->value);
 			p_a = p_a->next;
 		}
 		else
 		{
-			ft_printf("%3d:%3d			%3d:%3d\n", p_a->index, p_a->value,
+			ft_printf("%d:%5d			%d:%5d\n", p_a->index, p_a->value,
 				p_b->index, p_b->value);
 			p_a = p_a->next;
 			p_b = p_b->next;
@@ -78,6 +78,7 @@ int	main(int argc, char **argv)
 	pile_b = NULL;
 	pile_a = ft_get_pile(argc, argv);
 	ft_get_index(pile_a, argc);
+	ft_push(&pile_b, &pile_a);
 	ft_print_pile(pile_a, pile_b);
 	return (0);
 }
