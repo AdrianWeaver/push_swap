@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 13:20:59 by aweaver           #+#    #+#             */
-/*   Updated: 2022/03/18 11:13:10 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/03/18 13:33:00 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,6 @@ t_ps_pile	*ft_new_pile(int value);
 void		ft_pile_add_back(t_ps_pile **start, t_ps_pile *new);
 t_ps_pile	*ft_get_pile(int argc, char **argv);
 void		ft_get_index(t_ps_pile *pile_a, int argc);
+void		ft_push(t_ps_pile **dest, t_ps_pile **srcs);
+void		ft_print_pile(t_ps_pile *pile_a, t_ps_pile *pile_b);
 #endif

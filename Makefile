@@ -21,7 +21,8 @@ INC		=		-I ./libft/includes\
 
 SRCS	=	main.c					\
 			ft_lst_functions.c		\
-			ft_get_functions.c
+			ft_get_functions.c		\
+			ft_push.c
 OBJS	=	$(addprefix $(OBJS_PATH), $(SRCS:.c=.o))
 DEPS	=	$(OBJS:.o=.d)
 LIBFT	=	$(addprefix $(LIBFT_PATH), libft.a) 
