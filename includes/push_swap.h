@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 13:20:59 by aweaver           #+#    #+#             */
-/*   Updated: 2022/03/17 14:59:03 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/03/18 08:23:24 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,7 @@ typedef struct s_ps_pile
 	struct s_ps_pile	*next;
 }				t_ps_pile;
 
+t_ps_pile	*ft_last_pile(t_ps_pile *pile);
+t_ps_pile	*ft_new_pile(int value);
+void		ft_pile_add_back(t_ps_pile **start, t_ps_pile *new);
 #endif
