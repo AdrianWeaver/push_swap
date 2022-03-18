@@ -8,8 +8,9 @@ NAME					=	push_swap
 
 CC		=		gcc
 CFLAGS	=		-MMD -Wall -Wextra -Werror -g3
-INC		=		-I ./includes/\
-				-I $(LIBFT_INC)
+INC		=		-I ./libft/includes\
+				-I ./includes
+				
 
 
 #############################################################################
@@ -18,7 +19,8 @@ INC		=		-I ./includes/\
 #																			#
 #############################################################################
 
-SRCS	=	main.c
+SRCS	=	main.c					\
+			ft_lst_functions.c
 OBJS	=	$(addprefix $(OBJS_PATH), $(SRCS:.c=.o))
 DEPS	=	$(OBJS:.o=.d)
 LIBFT	=	$(addprefix $(LIBFT_PATH), libft.a) 
@@ -33,7 +35,7 @@ LIBFT	=	$(addprefix $(LIBFT_PATH), libft.a)
 SRCS_PATH	=	./sources/
 OBJS_PATH	=	./objects/
 LIBFT_PATH	=	./libft/
-LIBFT_INC	=	./libft/includes/
+
 
 #############################################################################
 #																			#
