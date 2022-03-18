@@ -6,13 +6,14 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 13:20:59 by aweaver           #+#    #+#             */
-/*   Updated: 2022/03/18 08:23:24 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/03/18 10:53:06 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+# include <limits.h>
 # include "libft.h"
 # include "libftprintf.h"
 
@@ -26,4 +27,5 @@ typedef struct s_ps_pile
 t_ps_pile	*ft_last_pile(t_ps_pile *pile);
 t_ps_pile	*ft_new_pile(int value);
 void		ft_pile_add_back(t_ps_pile **start, t_ps_pile *new);
+void		ft_get_index(t_ps_pile *pile_a, int argc);
 #endif
