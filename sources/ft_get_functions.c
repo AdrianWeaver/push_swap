@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 11:16:33 by aweaver           #+#    #+#             */
-/*   Updated: 2022/03/18 11:16:49 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/03/28 15:04:07 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ void	ft_get_index(t_ps_pile *pile_a, int argc)
 	t_ps_pile	*save;
 	int			cmp;
 
-	argc--;
 	save = pile_a;
 	while (argc > 0)
 	{
@@ -46,6 +45,8 @@ void	ft_get_index(t_ps_pile *pile_a, int argc)
 		cmp = INT_MIN;
 		while (pile_a)
 		{
+			if (pile_a->value == INT_MIN && pile_a->index == 0)
+				pile_a->index = 1;
 			if (pile_a->value > cmp && pile_a->index == 0)
 			{
 				cmp = pile_a->value;
