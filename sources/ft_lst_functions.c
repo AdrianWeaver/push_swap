@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 08:21:09 by aweaver           #+#    #+#             */
-/*   Updated: 2022/03/18 17:04:17 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/03/28 18:29:06 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,17 @@ void	ft_pile_add_back(t_ps_pile **start, t_ps_pile *new)
 	}
 	last = ft_last_pile(*start);
 	last->next = new;
+}
+
+int	ft_pile_size(t_ps_pile *pile_a)
+{
+	int	size;
+
+	size = 0;
+	while (pile_a)
+	{
+		pile_a = pile_a->next;
+		size++;
+	}
+	return (size);
 }
