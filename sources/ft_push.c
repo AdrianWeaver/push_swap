@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 12:49:07 by aweaver           #+#    #+#             */
-/*   Updated: 2022/03/18 17:20:39 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/03/28 17:07:41 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	ft_push(t_ps_pile **dest, t_ps_pile **srcs)
 {
 	t_ps_pile	*tmp;
 
+	if (*srcs == NULL)
+		return ;
 	tmp = (*srcs)->next;
 	(*srcs)->next = *dest;
 	*dest = *srcs;
