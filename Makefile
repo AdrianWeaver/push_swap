@@ -24,10 +24,15 @@ SRCS	=	main.c					\
 			ft_get_functions.c		\
 			ft_push.c				\
 			ft_swap.c				\
+			ft_check_sort.c			\
+			ft_sort_three.c			\
+			ft_the_algo.c			\
 			ft_rotate.c
 OBJS	=	$(addprefix $(OBJS_PATH), $(SRCS:.c=.o))
 DEPS	=	$(OBJS:.o=.d)
 LIBFT	=	$(addprefix $(LIBFT_PATH), libft.a) 
+TOTAL	=	$(shell find ./sources -type f -name '*.c' | wc -l)
+CURRENT =	$(shell find ./objects -type f -name '*.o' 2>/dev/null | wc -l | xargs expr 1 +)
 
 
 #############################################################################
@@ -50,11 +55,14 @@ LIBFT_PATH	=	./libft/
 all:				$(NAME)
 
 $(NAME):			$(OBJS) $(LIBFT)
-					$(CC) $(CFLAGS) $(OBJS) -o $@ $(LIBFT)
+					@$(CC) $(CFLAGS) $(OBJS) -o $@ $(LIBFT)
+					@echo "\nLinking files"
 
 $(OBJS_PATH)%.o:	$(SRCS_PATH)%.c
 					@mkdir -p $(OBJS_PATH)
-					$(CC) $(CFLAGS) -c $< -o $@ $(INC)
+					@$(CC) $(CFLAGS) -c $< -o $@ $(INC)
+					@sleep 0.1
+					@echo -n "\33[2KBuilding object $(CURRENT)/$(TOTAL)\r"
 
 $(LIBFT):
 					@make -C $(LIBFT_PATH) --no-print-directory
