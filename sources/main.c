@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 13:20:00 by aweaver           #+#    #+#             */
-/*   Updated: 2022/03/18 17:14:54 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/03/28 18:19:46 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,17 @@ void	ft_print_pile(t_ps_pile *p_a, t_ps_pile *p_b)
 	{
 		if (p_a == NULL || p_a->index == 0)
 		{
-			ft_printf("empty			%d:%5d\n", p_b->index, p_b->value);
+			ft_printf("empty		%d:%11d\n", p_b->index, p_b->value);
 			p_b = p_b->next;
 		}
 		else if (p_b == NULL || p_b->index == 0)
 		{
-			ft_printf("%d:%5d			empty\n", p_a->index, p_a->value);
+			ft_printf("%d:%11d			empty\n", p_a->index, p_a->value);
 			p_a = p_a->next;
 		}
 		else
 		{
-			ft_printf("%d:%5d			%d:%5d\n", p_a->index, p_a->value,
+			ft_printf("%d:%11d		%d:%11d\n", p_a->index, p_a->value,
 				p_b->index, p_b->value);
 			p_a = p_a->next;
 			p_b = p_b->next;
@@ -49,12 +49,15 @@ void	ft_check_args(int argc, char **argv)
 	int	j;
 
 	i = 1;
-	if (argc < 2 || argv == NULL)
+	if (argc <= 2 || argv == NULL)
 		exit (1);
 	while (i < argc)
 	{
 		j = 1;
-		if (argv[i][0] == '-' || ft_isdigit(argv[i][0]) == 1)
+		if (ft_is_int(argv[i]) == 0)
+			ft_error();
+		if (argv[i][0] == '-' || argv[i][0] == '+'
+			|| ft_isdigit(argv[i][0]) == 1)
 		{
 			while (argv[i][j])
 			{
@@ -77,8 +80,8 @@ int	main(int argc, char **argv)
 	ft_check_args(argc, argv);
 	pile_b = NULL;
 	pile_a = ft_get_pile(argc, argv);
-	ft_get_index(pile_a, argc);
-	ft_reverse_rotate(&pile_a);
+	ft_get_index(pile_a, argc - 1);
+	ft_the_algo(&pile_a, &pile_b);
 	ft_print_pile(pile_a, pile_b);
 	return (0);
 }
