@@ -6,7 +6,7 @@
 #    By: aweaver <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/23 10:40:46 by aweaver           #+#    #+#              #
-#    Updated: 2022/03/10 10:43:32 by aweaver          ###   ########.fr        #
+#    Updated: 2022/03/28 14:32:55 by aweaver          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ SRCS		=	$(addprefix $(LIBFT_PATH),\
 				ft_isascii.c		\
 				ft_isprint.c		\
 				ft_is_base_ok.c		\
+				ft_is_int.c			\
 				ft_array_size.c		\
 				ft_strlen_int.c		\
 				ft_strlen_nl.c		\
