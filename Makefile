@@ -27,6 +27,7 @@ SRCS	=	main.c					\
 			ft_check_sort.c			\
 			ft_sort_three.c			\
 			ft_the_algo.c			\
+			ft_print_pile.c			\
 			ft_rotate.c
 OBJS	=	$(addprefix $(OBJS_PATH), $(SRCS:.c=.o))
 DEPS	=	$(OBJS:.o=.d)

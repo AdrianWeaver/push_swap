@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 13:20:59 by aweaver           #+#    #+#             */
-/*   Updated: 2022/03/28 18:15:44 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/03/30 10:17:22 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ typedef struct s_ps_pile
 }				t_ps_pile;
 
 void		ft_get_index(t_ps_pile *pile_a, int argc);
-void		ft_print_pile(t_ps_pile *pile_a, t_ps_pile *pile_b);
 int			ft_check_sort(t_ps_pile *pile);
 void		ft_sort_three(t_ps_pile **pile);
 void		ft_the_algo(t_ps_pile **pile_a, t_ps_pile **pile_b);
@@ -49,4 +48,9 @@ void		ft_swap_pile(t_ps_pile *pile);
 void		ft_rotate(t_ps_pile **pile);
 void		ft_reverse_rotate(t_ps_pile **pile);
 
+/****************************************************************************/
+/*								VISUALIZER									*/
+/****************************************************************************/
+
+void		ft_print_pile(t_ps_pile *pile_a, t_ps_pile *pile_b);
 #endif

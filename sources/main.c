@@ -6,36 +6,11 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 13:20:00 by aweaver           #+#    #+#             */
-/*   Updated: 2022/03/28 18:19:46 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/03/30 10:17:46 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	ft_print_pile(t_ps_pile *p_a, t_ps_pile *p_b)
-{
-	ft_printf("PILE A:			PILE B:\n");
-	while (p_a || p_b)
-	{
-		if (p_a == NULL || p_a->index == 0)
-		{
-			ft_printf("empty		%d:%11d\n", p_b->index, p_b->value);
-			p_b = p_b->next;
-		}
-		else if (p_b == NULL || p_b->index == 0)
-		{
-			ft_printf("%d:%11d			empty\n", p_a->index, p_a->value);
-			p_a = p_a->next;
-		}
-		else
-		{
-			ft_printf("%d:%11d		%d:%11d\n", p_a->index, p_a->value,
-				p_b->index, p_b->value);
-			p_a = p_a->next;
-			p_b = p_b->next;
-		}
-	}
-}
 
 void	ft_error(void)
 {
