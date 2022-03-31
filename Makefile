@@ -28,6 +28,7 @@ SRCS	=	main.c					\
 			ft_sort_three.c			\
 			ft_the_algo.c			\
 			ft_print_pile.c			\
+			ft_reverse_rotate.c		\
 			ft_rotate.c
 OBJS	=	$(addprefix $(OBJS_PATH), $(SRCS:.c=.o))
 DEPS	=	$(OBJS:.o=.d)
@@ -61,12 +62,13 @@ $(NAME):			$(OBJS) $(LIBFT)
 
 $(OBJS_PATH)%.o:	$(SRCS_PATH)%.c
 					@mkdir -p $(OBJS_PATH)
-					@$(CC) $(CFLAGS) -c $< -o $@ $(INC)
+					$(CC) $(CFLAGS) -c $< -o $@ $(INC)
 					@sleep 0.1
 					@echo -n "\33[2KBuilding object $(CURRENT)/$(TOTAL)\r"
 
 $(LIBFT):
 					@make -C $(LIBFT_PATH) --no-print-directory
+
 clean:				
 					@rm -rf $(OBJS_PATH)
 					@echo "Objs cleaned!"
