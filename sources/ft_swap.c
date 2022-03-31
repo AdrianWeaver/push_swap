@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 17:19:02 by aweaver           #+#    #+#             */
-/*   Updated: 2022/03/18 17:19:26 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/03/31 14:31:47 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,21 @@ void	ft_swap_pile(t_ps_pile *pile)
 	ft_swap_value_index(pile, pile->next);
 }
 
-void	ft_swap_both(t_ps_pile *pile_a, t_ps_pile *pile_b)
+void	ft_ss(t_ps_pile **pile_a, t_ps_pile **pile_b)
 {
-	ft_swap_pile(pile_a);
-	ft_swap_pile(pile_b);
+	ft_swap_pile(*pile_a);
+	ft_swap_pile(*pile_b);
+	ft_printf("ss\n");
+}
+
+void	ft_sa(t_ps_pile	**pile_a)
+{
+	ft_swap_pile(*pile_a);
+	ft_printf("sa\n");
+}
+
+void	ft_sb(t_ps_pile	**pile_b)
+{
+	ft_swap_pile(*pile_b);
+	ft_printf("sb\n");
 }

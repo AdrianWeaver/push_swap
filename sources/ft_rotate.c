@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 17:19:31 by aweaver           #+#    #+#             */
-/*   Updated: 2022/03/18 17:19:45 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/03/31 14:33:21 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,21 @@ void	ft_rotate(t_ps_pile **pile)
 	last->next->next = NULL;
 }
 
-void	ft_reverse_rotate(t_ps_pile	**pile)
+void	ft_ra(t_ps_pile **pile_a)
 {
-	t_ps_pile	*tmp;
-	t_ps_pile	*last;
-	t_ps_pile	*ante;
+	ft_rotate(pile_a);
+	ft_printf("ra\n");
+}
 
-	tmp = (*pile);
-	last = ft_last_pile(*pile);
-	ante = ft_ante_pile(*pile);
-	(*pile) = last;
-	(*pile)->next = tmp;
-	ante->next = NULL;
+void	ft_rb(t_ps_pile **pile_b)
+{
+	ft_rotate(pile_b);
+	ft_printf("rb\n");
+}
+
+void	ft_rr(t_ps_pile **pile_a, t_ps_pile **pile_b)
+{
+	ft_rotate(pile_a);
+	ft_rotate(pile_b);
+	ft_printf("rr\n");
 }
