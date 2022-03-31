@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 13:20:00 by aweaver           #+#    #+#             */
-/*   Updated: 2022/03/30 10:17:46 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/03/31 17:40:21 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ int	main(int argc, char **argv)
 	pile_a = ft_get_pile(argc, argv);
 	ft_get_index(pile_a, argc - 1);
 	ft_the_algo(&pile_a, &pile_b);
+	ft_get_aim_a(&pile_a, &pile_b);
+	ft_get_cost(&pile_a, &pile_b);
 	ft_print_pile(pile_a, pile_b);
 	return (0);
 }

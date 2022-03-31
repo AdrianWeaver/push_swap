@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 13:20:59 by aweaver           #+#    #+#             */
-/*   Updated: 2022/03/31 14:33:09 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/03/31 17:39:52 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,9 @@ typedef struct s_ps_pile
 	int					value;
 	int					index;
 	struct s_ps_pile	*next;
+	int					pos;
+	int					aim_a;
+	int					cost;
 }				t_ps_pile;
 
 void		ft_get_index(t_ps_pile *pile_a, int argc);
@@ -65,4 +68,12 @@ void		ft_rrr(t_ps_pile **pile_a, t_ps_pile **pile_b);
 /****************************************************************************/
 
 void		ft_print_pile(t_ps_pile *pile_a, t_ps_pile *pile_b);
+
+/****************************************************************************/
+/*								ALGO FUNCTS									*/
+/****************************************************************************/
+
+void		ft_get_aim_a(t_ps_pile **pile_a, t_ps_pile **pile_b);
+void		ft_get_pos(t_ps_pile **pile);
+void		ft_get_cost(t_ps_pile **pile_a, t_ps_pile **pile_b);
 #endif
