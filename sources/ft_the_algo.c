@@ -6,30 +6,49 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 15:20:37 by aweaver           #+#    #+#             */
-/*   Updated: 2022/03/28 18:28:43 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/03/31 14:47:50 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_the_algo(t_ps_pile **pile_a, t_ps_pile **pile_b)
+void	ft_push_rest(t_ps_pile **pile_a, t_ps_pile **pile_b, int list_size,
+	int swapped)
+{
+	while (list_size - swapped > 3)
+	{
+		ft_pb(pile_a, pile_b);
+		swapped++;
+	}
+}
+
+void	ft_push_half(t_ps_pile **pile_a, t_ps_pile **pile_b)
 {
 	int	i;
+	int	swapped;
 	int	list_size;
 	int	med;
 
 	i = 0;
+	swapped = 0;
 	list_size = ft_pile_size(*pile_a);
-	ft_printf("size = %d\n", list_size);
 	med = list_size / 2;
-	while (i < list_size - 1 && (list_size - i) >= 3)
+	while (list_size > 6 && i < list_size && swapped < list_size / 2)
 	{
-		ft_printf("Debug de la honte\n");
 		if ((*pile_a)->index <= med)
-			ft_push(pile_b, pile_a);
+		{
+			ft_pb(pile_a, pile_b);
+			swapped++;
+		}
 		else
-			ft_rotate(pile_a);
+			ft_ra(pile_a);
 		i++;
 	}
-	ft_printf("OUT Debug de la honte\n");
+	ft_push_rest(pile_a, pile_b, list_size, swapped);
+}
+
+void	ft_the_algo(t_ps_pile **pile_a, t_ps_pile **pile_b)
+{
+	ft_push_half(pile_a, pile_b);
+	ft_sort_three(pile_a);
 }

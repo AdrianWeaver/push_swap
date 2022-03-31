@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 10:18:35 by aweaver           #+#    #+#             */
-/*   Updated: 2022/03/28 11:39:32 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/03/31 14:35:05 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,11 @@ void	ft_sort_three(t_ps_pile **pile)
 	biggest = ft_get_biggest(*tmp);
 	if (tmp->index == biggest)
 	{
-		ft_rotate(&tmp);
+		ft_ra(&tmp);
 	}
 	else if (tmp->next->index == biggest)
-		ft_reverse_rotate(&tmp);
+		ft_rra(&tmp);
 	if (tmp->index > tmp->next->index)
-		ft_swap_pile(tmp);
+		ft_sa(&tmp);
 	*pile = tmp;
 }
