@@ -6,7 +6,7 @@
 /*   By: aweaver <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 11:10:46 by aweaver           #+#    #+#             */
-/*   Updated: 2022/03/28 13:48:10 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/04/01 10:34:33 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,13 @@ typedef struct s_list
 #  define BTEAL "\33[1;36m"
 #  define BWHITE "\33[1;97m"
 #  define NOCOLOUR "\33[0m"
+# endif
+
+# ifndef FT_ABS
+#  define FT_ABS
+
+int		ft_abs(int nb);
+
 # endif
 
 # ifndef FT_ISALPHA_H

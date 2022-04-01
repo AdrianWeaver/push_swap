@@ -6,7 +6,7 @@
 #    By: aweaver <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/23 10:40:46 by aweaver           #+#    #+#              #
-#    Updated: 2022/03/28 14:32:55 by aweaver          ###   ########.fr        #
+#    Updated: 2022/04/01 11:23:50 by aweaver          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ GNL_PATH	=	./get_next_line/
 PRINTF_PATH	=	./ft_printf/
 
 SRCS		=	$(addprefix $(LIBFT_PATH),\
+				ft_abs.c			\
 				ft_isalpha.c		\
 				ft_isdigit.c		\
 				ft_isalnum.c		\
