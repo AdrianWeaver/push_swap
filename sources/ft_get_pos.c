@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 15:32:35 by aweaver           #+#    #+#             */
-/*   Updated: 2022/04/01 16:42:36 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/04/01 20:18:49 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,19 +72,18 @@ void	ft_get_cost(t_ps_pile **pile_a, t_ps_pile **pile_b)
 	}
 }
 
-int	ft_get_aim_a_highest(t_ps_pile **pile_a, t_ps_pile *tmp, int cmp, int aim)
+static int	ft_get_aim_a_highest(t_ps_pile **pile_a, int cmp, int aim)
 {
 	t_ps_pile	*tmp_a;
-	int			cmp_a;
 
 	tmp_a = *pile_a;
 	if (cmp == INT_MAX)
 	{
 		while (tmp_a)
 		{
-			if (tmp->index < cmp_a)
+			if (tmp_a->index < cmp)
 			{
-				cmp_a = tmp->index;
+				cmp = tmp_a->index;
 				aim = tmp_a->pos;
 			}
 			tmp_a = tmp_a->next;
@@ -116,7 +115,7 @@ void	ft_get_aim_a(t_ps_pile **pile_a, t_ps_pile **pile_b)
 			}
 			tmp_a = tmp_a->next;
 		}
-		index_aim = ft_get_aim_a_highest(pile_a, tmp_b, cmp_a, index_aim);
+		index_aim = ft_get_aim_a_highest(pile_a, cmp_a, index_aim);
 		tmp_b->aim_a = index_aim;
 		tmp_b = tmp_b->next;
 	}
