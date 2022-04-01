@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 13:20:59 by aweaver           #+#    #+#             */
-/*   Updated: 2022/04/01 16:36:03 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/04/01 17:28:07 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,16 @@ typedef struct s_ps_pile
 	int					cost_b;
 }				t_ps_pile;
 
+/****************************************************************************/
+/*								CHECK FUNCTS								*/
+/****************************************************************************/
+
 void		ft_get_index(t_ps_pile *pile_a, int argc);
 int			ft_check_sort(t_ps_pile *pile);
-void		ft_sort_three(t_ps_pile **pile);
-void		ft_the_algo(t_ps_pile **pile_a, t_ps_pile **pile_b);
+void		ft_check_double(t_ps_pile *pile, int value);
 
 /****************************************************************************/
-/*								PILE FUNCT									*/
+/*								PILE FUNCTS									*/
 /****************************************************************************/
 
 t_ps_pile	*ft_last_pile(t_ps_pile *pile);
@@ -43,6 +46,7 @@ t_ps_pile	*ft_new_pile(int value);
 t_ps_pile	*ft_get_pile(int argc, char **argv);
 int			ft_pile_size(t_ps_pile *pile_a);
 void		ft_pile_add_back(t_ps_pile **start, t_ps_pile *new);
+void		ft_destroy_pile(t_ps_pile *pile);
 
 /****************************************************************************/
 /*								OPERATIONS									*/
@@ -74,6 +78,8 @@ void		ft_print_pile(t_ps_pile *pile_a, t_ps_pile *pile_b);
 /*								ALGO FUNCTS									*/
 /****************************************************************************/
 
+void		ft_the_algo(t_ps_pile **pile_a, t_ps_pile **pile_b);
+void		ft_sort_three(t_ps_pile **pile);
 void		ft_push_rest(t_ps_pile **p_a, t_ps_pile **p_b, int l_size, int s);
 void		ft_push_half(t_ps_pile **p_a, t_ps_pile **p_b);
 void		ft_get_aim_a(t_ps_pile **pile_a, t_ps_pile **pile_b);
