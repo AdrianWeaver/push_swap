@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 13:20:59 by aweaver           #+#    #+#             */
-/*   Updated: 2022/04/01 12:15:43 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/04/01 16:36:03 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,11 +74,16 @@ void		ft_print_pile(t_ps_pile *pile_a, t_ps_pile *pile_b);
 /*								ALGO FUNCTS									*/
 /****************************************************************************/
 
+void		ft_push_rest(t_ps_pile **p_a, t_ps_pile **p_b, int l_size, int s);
+void		ft_push_half(t_ps_pile **p_a, t_ps_pile **p_b);
 void		ft_get_aim_a(t_ps_pile **pile_a, t_ps_pile **pile_b);
 void		ft_get_pos(t_ps_pile **pile);
+int			ft_get_smallest_pos(t_ps_pile **pile);
 void		ft_get_cost(t_ps_pile **pile_a, t_ps_pile **pile_b);
+void		ft_get_cheapest(t_ps_pile **pile_a, t_ps_pile **pile_b);
 void		ft_make_choice(t_ps_pile **p_a, t_ps_pile **p_b, int a, int b);
-void		ft_both_pos(t_ps_pile **p_a, t_ps_pile **p_b, int a, int b);
-void		ft_both_neg(t_ps_pile **p_a, t_ps_pile **p_b, int a, int b);
-void		ft_cost_left(t_ps_pile **pile, int cost, char a_or_b);
+void		ft_both_pos(t_ps_pile **p_a, t_ps_pile **p_b, int *a, int *b);
+void		ft_both_neg(t_ps_pile **p_a, t_ps_pile **p_b, int *a, int *b);
+void		ft_cost_left(t_ps_pile **pile, int *cost, char a_or_b);
+void		ft_order_list(t_ps_pile **pile_a);
 #endif
