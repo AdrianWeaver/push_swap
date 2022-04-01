@@ -84,18 +84,26 @@ re:					fclean
 test:				$(NAME)	
 					$(eval ARG = $(shell shuf -i 0-100 -n 100))
 					./push_swap $(ARG) | ./checker_linux $(ARG)
+					@echo -n "Nombre d'opérations : "
+					@./push_swap $(ARG) | wc -l
 
 test3:				$(NAME)	
 					$(eval ARG = $(shell shuf -i 0-100 -n 3))
 					./push_swap $(ARG) | ./checker_linux $(ARG)
+					@echo -n "Nombre d'opérations : "
+					@./push_swap $(ARG) | wc -l
 
 test5:				$(NAME)	
 					$(eval ARG = $(shell shuf -i 0-5000 -n 5))
 					./push_swap $(ARG) | ./checker_linux $(ARG)
+					@echo -n "Nombre d'opérations : "
+					@./push_swap $(ARG) | wc -l
 
 test500:			$(NAME)	
 					$(eval ARG = $(shell shuf -i 0-5000 -n 500))
 					./push_swap $(ARG) | ./checker_linux $(ARG)
+					@echo -n "Nombre d'opérations : "
+					@./push_swap $(ARG) | wc -l
 
 -include $(DEPS)
 .PHONY:				all clean fclean re bonus test test5 test500
