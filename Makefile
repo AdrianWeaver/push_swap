@@ -27,9 +27,11 @@ SRCS	=	main.c					\
 			ft_check_sort.c			\
 			ft_sort_three.c			\
 			ft_the_algo.c			\
+			ft_the_algo_part_2.c	\
 			ft_print_pile.c			\
+			ft_rotate.c				\
 			ft_reverse_rotate.c		\
-			ft_rotate.c
+			ft_get_pos.c
 OBJS	=	$(addprefix $(OBJS_PATH), $(SRCS:.c=.o))
 DEPS	=	$(OBJS:.o=.d)
 LIBFT	=	$(addprefix $(LIBFT_PATH), libft.a) 
