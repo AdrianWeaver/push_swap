@@ -6,22 +6,24 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 10:18:35 by aweaver           #+#    #+#             */
-/*   Updated: 2022/03/31 14:35:05 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/04/01 14:33:17 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_get_biggest(t_ps_pile pile)
+int	ft_get_biggest(t_ps_pile *pile)
 {
+	t_ps_pile	*tmp;
 	int			biggest;
 
-	biggest = pile.index;
-	while (pile.next != NULL)
+	tmp = pile;
+	biggest = tmp->index;
+	while (tmp)
 	{
-		if (pile.index > biggest)
-			biggest = pile.index;
-		pile = *(pile.next);
+		if (tmp->index > biggest)
+			biggest = tmp->index;
+		tmp = tmp->next;
 	}
 	return (biggest);
 }
@@ -34,7 +36,7 @@ void	ft_sort_three(t_ps_pile **pile)
 	tmp = *pile;
 	if (ft_check_sort(tmp) == 1)
 		return ;
-	biggest = ft_get_biggest(*tmp);
+	biggest = ft_get_biggest(*pile);
 	if (tmp->index == biggest)
 	{
 		ft_ra(&tmp);
