@@ -38,7 +38,6 @@ LIBFT	=	$(addprefix $(LIBFT_PATH), libft.a)
 TOTAL	=	$(shell find ./sources -type f -name '*.c' | wc -l)
 CURRENT =	$(shell find ./objects -type f -name '*.o' 2>/dev/null | wc -l | xargs expr 1 +)
 
-
 #############################################################################
 #																			#
 #									PATHS									#
@@ -83,7 +82,20 @@ re:					fclean
 
 
 test:				$(NAME)	
-					./push_swap 2 44 66 102 -1 38
+					$(eval ARG = $(shell shuf -i 0-100 -n 100))
+					./push_swap $(ARG) | ./checker_linux $(ARG)
+
+test3:				$(NAME)	
+					$(eval ARG = $(shell shuf -i 0-100 -n 3))
+					./push_swap $(ARG) | ./checker_linux $(ARG)
+
+test5:				$(NAME)	
+					$(eval ARG = $(shell shuf -i 0-5000 -n 5))
+					./push_swap $(ARG) | ./checker_linux $(ARG)
+
+test500:			$(NAME)	
+					$(eval ARG = $(shell shuf -i 0-5000 -n 500))
+					./push_swap $(ARG) | ./checker_linux $(ARG)
 
 -include $(DEPS)
-.PHONY:				all clean fclean re bonus test
+.PHONY:				all clean fclean re bonus test test5 test500
