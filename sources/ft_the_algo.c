@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 15:20:37 by aweaver           #+#    #+#             */
-/*   Updated: 2022/04/01 16:43:35 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/04/01 17:11:48 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,13 +100,11 @@ void	ft_the_algo(t_ps_pile **pile_a, t_ps_pile **pile_b)
 	ft_sort_three(pile_a);
 	ft_get_aim_a(pile_a, pile_b);
 	ft_get_cost(pile_a, pile_b);
-	ft_print_pile(*pile_a, *pile_b);
 	while ((*pile_b))
 	{
 		ft_get_aim_a(pile_a, pile_b);
 		ft_get_cost(pile_a, pile_b);
 		ft_get_cheapest(pile_a, pile_b);
-		ft_print_pile(*pile_a, *pile_b);
 	}
 	if (ft_check_sort(*pile_a) == 0)
 		ft_order_list(pile_a);
