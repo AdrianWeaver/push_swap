@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 11:16:33 by aweaver           #+#    #+#             */
-/*   Updated: 2022/04/01 17:31:23 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/04/01 17:35:36 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_check_double(t_ps_pile *pile, int value)
 		if (tmp->value == value)
 		{
 			ft_destroy_pile(pile);
-			ft_printf("Error\n");
+			write(2, "Error\n", 6);
 			exit (1);
 		}
 		tmp = tmp->next;
