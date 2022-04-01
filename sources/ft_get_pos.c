@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 15:32:35 by aweaver           #+#    #+#             */
-/*   Updated: 2022/03/31 17:52:39 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/04/01 10:29:13 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,12 @@ void	ft_get_cost(t_ps_pile **pile_a, t_ps_pile **pile_b)
 	pa_size = ft_pile_size(tmp_a);
 	while (tmp_b)
 	{
-		tmp_b->cost = tmp_b->pos + 1;
+		tmp_b->cost_b = tmp_b->pos + 1;
 		if (tmp_b->pos > (pb_size / 2))
-			tmp_b->cost = pb_size - tmp_b->pos + 1;
+			tmp_b->cost_b = - (pb_size - tmp_b->pos + 1);
+		tmp_b->cost_a = tmp_b->aim_a;
 		if (tmp_b->aim_a > (pa_size / 2))
-			tmp_b->cost += (pa_size - tmp_b->aim_a) + 1;
-		else
-			tmp_b->cost += tmp_b->aim_a;
+			tmp_b->cost_a = - (pa_size - tmp_b->aim_a + 1);
 		tmp_b = tmp_b->next;
 	}
 }
