@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 13:06:02 by aweaver           #+#    #+#             */
-/*   Updated: 2022/03/28 14:01:55 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/04/04 17:44:48 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ int	ft_is_int(char *str)
 
 	i = 0;
 	if (str[i] == '-' || str[i] == '+')
-		i++;
+		if (str[++i] == '\0')
+			return (0);
 	len = ft_strlen(str);
 	str = ft_skip_zeros(str, len, i);
 	len = ft_strlen(str);
