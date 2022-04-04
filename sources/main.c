@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 13:20:00 by aweaver           #+#    #+#             */
-/*   Updated: 2022/04/04 11:23:19 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/04/04 15:31:32 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_check_args(int argc, char **argv)
 	int	j;
 
 	i = 1;
-	if (argc <= 2 || argv == NULL)
+	if (argc < 2 || argv == NULL)
 		exit (1);
 	while (i < argc)
 	{
@@ -54,16 +54,18 @@ int	main(int argc, char **argv)
 	int			pile_size;
 
 	ft_check_args(argc, argv);
+	if (argc == 2)
+		return (0);
 	pile_b = NULL;
 	pile_a = ft_get_pile(argc, argv);
 	pile_size = ft_pile_size(pile_a);
+	ft_get_index(pile_a, argc - 1);
 	if (pile_size == 3)
 		ft_sort_three(&pile_a);
 	else if (pile_size == 2 && ft_check_sort(pile_a) == 0)
 		ft_sa(&pile_a);
 	else if (ft_check_sort(pile_a) == 0)
 	{
-		ft_get_index(pile_a, argc - 1);
 		ft_the_algo(&pile_a, &pile_b);
 		ft_get_aim_a(&pile_a, &pile_b);
 		ft_get_cost(&pile_a, &pile_b);
