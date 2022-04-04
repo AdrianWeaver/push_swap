@@ -6,7 +6,7 @@
 /*   By: aweaver <aweaver@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 13:20:00 by aweaver           #+#    #+#             */
-/*   Updated: 2022/04/04 08:54:35 by aweaver          ###   ########.fr       */
+/*   Updated: 2022/04/04 11:23:19 by aweaver          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int	main(int argc, char **argv)
 		ft_sort_three(&pile_a);
 	else if (pile_size == 2 && ft_check_sort(pile_a) == 0)
 		ft_sa(&pile_a);
-	else
+	else if (ft_check_sort(pile_a) == 0)
 	{
 		ft_get_index(pile_a, argc - 1);
 		ft_the_algo(&pile_a, &pile_b);
